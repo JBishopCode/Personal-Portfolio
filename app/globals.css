@@ -1,26 +1,99 @@
 @import "tailwindcss";
 
+/* Enable class-based dark mode for Tailwind */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ── Light mode ────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Background & surfaces */
+  --bg:           #f5f3ff;
+  --card-bg:      rgba(255, 255, 255, 0.85);
+  --nav-bg:       rgba(245, 243, 255, 0.85);
+  
+  /* Text colors */
+  --fg:           #0c0c1e;
+  --fg-2:         #4b5563;
+  --fg-3:         #6b7280;
+  
+  /* Borders & UI */
+  --border:       rgba(0, 0, 0, 0.08);
+  --border-hover: rgba(109, 40, 217, 0.35);
+  
+  /* Decorative elements */
+  --dot-color:    rgba(0, 0, 0, 0.045);
+  --ambient-1:    rgba(139, 92, 246, 0.09);
+  --ambient-2:    rgba(56, 189, 248, 0.06);
+  --ambient-3:    rgba(52, 211, 153, 0.04);
 }
 
+/* ── Dark mode ──────────────────────────────────── */
+.dark {
+  --bg:           #06061a;
+  --card-bg:      rgba(13, 13, 40, 0.7);
+  --nav-bg:       rgba(6, 6, 26, 0.75);
+  --fg:           #f0f0ff;
+  --fg-2:         #94a3b8;
+  --fg-3:         #64748b;
+  --border:       rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(139, 92, 246, 0.35);
+  --dot-color:    rgba(255, 255, 255, 0.028);
+  --ambient-1:    rgba(139, 92, 246, 0.13);
+  --ambient-2:    rgba(56, 189, 248, 0.09);
+  --ambient-3:    rgba(52, 211, 153, 0.05);
+}
+
+/* Custom theme extension */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Global styles */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg);
+  color: var(--fg);
+  background-image:
+    radial-gradient(ellipse 90% 55% at 30% -5%, var(--ambient-1) 0%, transparent 70%),
+    radial-gradient(ellipse 70% 45% at 80% 5%, var(--ambient-2) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 30% at 50% 100%, var(--ambient-3) 0%, transparent 70%);
+  transition: background-color 0.3s ease, color 0.2s ease;
+}
+
+/* Subtle animated dot grid overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: radial-gradient(circle, var(--dot-color) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.3);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.55);
+}
+
+/* Text selection styling */
+::selection {
+  background: rgba(139, 92, 246, 0.3);
+  color: var(--fg);
 }
