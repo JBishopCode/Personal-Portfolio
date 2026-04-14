@@ -1,10 +1,23 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { techs, TechKey } from '@/lib/techs';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 export function GithubIcon({ size = 24 }) {
-    return <FontAwesomeIcon icon={faGithub} size={size > 20 ? "lg" : "sm"} />;
+    return <FaGithub size={size} />
 }
 
 export function LinkedinIcon({ size = 24 }) {
-    return <FontAwesomeIcon icon={faLinkedin} size={size > 20 ? "lg" : "sm"} />;
+    return <FaLinkedin size={size} />
+}
+
+export function TechBadge({ tech }: { tech: TechKey }) {
+  const { label, icon: Icon, color, bg } = techs[tech];
+  return (
+    <div
+      className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-sm font-medium"
+      style={{ backgroundColor: bg, color }}
+    >
+      <Icon size={14} color={color} />
+      <span>{label}</span>
+    </div>
+  );
 }
