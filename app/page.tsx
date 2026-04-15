@@ -28,7 +28,7 @@ export default function Home() {
 
   return (
     <>
-      {/* ── Hero ────────────────────────────────────────── */}
+      {/* Hero */}
       <section className='relative min-h-[calc(100vh-4rem)] flex items-center px-6 overflow-hidden'>
         {/* Decorative blurred orbs */}
         <div aria-hidden className='pointer-events-none absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full bg-violet-400/8 dark:bg-violet-600/10 blur-[120px]' />
@@ -119,7 +119,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Tech Stack ──────────────────────────────────── */}
+      {/* Tech Stack */}
       <SectionWrapper>
         <div className='flex items-center gap-3 mb-8'>
           <div className='h-px flex-1 bg-gradient-to-r from-transparent via-violet-400/30 to-transparent' />
@@ -144,7 +144,7 @@ export default function Home() {
         </div>
       </SectionWrapper>
 
-      {/* ── Featured Projects ────────────────────────────── */}
+      {/* Featured Projects */}
       <SectionWrapper>
         <div className='flex items-end justify-between mb-10'>
           <div>
@@ -182,7 +182,7 @@ export default function Home() {
         </div>
       </SectionWrapper>
 
-      {/* ── Experience ───────────────────────────────────── */}
+      {/* Experience */}
       <SectionWrapper>
         <div className='flex items-end justify-between mb-10'>
           <div>
@@ -252,7 +252,7 @@ export default function Home() {
         </div>
       </SectionWrapper>
 
-      {/* ── CTA ─────────────────────────────────────────── */}
+      {/* CTA */}
       <SectionWrapper>
         <div className='relative overflow-hidden rounded-2xl border border-violet-300/40 dark:border-violet-500/20 p-10 text-center bg-gradient-to-br from-violet-50 via-blue-50/50 to-emerald-50/30 dark:from-violet-500/8 dark:via-blue-500/5 dark:to-emerald-500/5'>
           <h2 className='relative text-3xl font-bold text-slate-900 dark:text-white mb-3'>
