@@ -10,14 +10,21 @@ export function LinkedinIcon({ size = 24 }) {
 }
 
 export function TechBadge({ tech }: { tech: TechKey }) {
-  const { label, icon: Icon, color, bg } = techs[tech];
-  return (
-    <div
-      className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-sm font-medium"
-      style={{ backgroundColor: bg, color }}
-    >
-      <Icon size={14} color={color} />
-      <span>{label}</span>
-    </div>
+    const entry = techs[tech];
+    
+    if (!entry) {
+      console.warn(`TechBadge: unknown tech key "${tech}"`);
+      return null;
+    }
+
+    const { label, icon: Icon, color, bg } = techs[tech];
+    return (
+      <div
+        className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-sm font-medium"
+        style={{ backgroundColor: bg, color }}
+      >
+        {Icon && <Icon size={14} color={color} />}
+        <span>{label}</span>
+      </div>
   );
 }

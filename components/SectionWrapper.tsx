@@ -5,7 +5,7 @@ import { useRef } from 'react';
 
 interface SectionWrapperProps {
     children: React.ReactNode;
-    className: string;
+    className?: string;
     id?: string;
 }
 
