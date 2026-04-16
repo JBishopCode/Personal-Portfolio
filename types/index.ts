@@ -1,9 +1,11 @@
+import { TechKey } from '@/lib/techs';
+
 export interface Project {
     id: string;
     title: string;
     description: string;
     longDescription: string;
-    tech: string[];
+    tech: TechKey[];
     impact: string;
     github?: string;
     live?: string;
@@ -19,7 +21,7 @@ export interface Experience {
     period: string;
     current: boolean;
     description: string[];
-    tech: string[];
+    tech: TechKey[];
     logo?: string;
 }
 

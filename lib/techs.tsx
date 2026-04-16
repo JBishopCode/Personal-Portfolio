@@ -4,6 +4,7 @@ import {
   SiSupabase, SiPostgresql, SiDrizzle,
   SiJupyter, SiNumpy, SiPandas, SiPytorch, SiScikitlearn,
   SiGit, SiGithub, SiVercel, SiArduino,
+  SiStmicroelectronics,
 } from 'react-icons/si';
 import { FaLinkedin, FaWindows, FaLinux } from 'react-icons/fa';
 import { VscVscode } from 'react-icons/vsc'
@@ -13,12 +14,13 @@ export type TechKey =
     'cplusplus' | 'python' | 'javascript' | 'c' | 'json' | 'typescript'
   | 'html' | 'css' | 'react' | 'nextjs' | 'tailwind'
   | 'supabase' | 'postgresql' | 'drizzle'
-  | 'jupyter' | 'numpy' | 'pandas' | 'pytorch' | 'scikitlearn'
+  | 'jupyter' | 'numpy' | 'pandas' | 'pytorch' | 'scikitlearn' | 'matplotlib' | 'ml'
   | 'git' | 'github' | 'vercel' | 'arduino'
   | 'vscode' | 'windows' | 'linux'
-  | 'linkedin';
+  | 'linkedin'
+  | 'embeddedsys' | 'stm32';
 
-export const techs: Record<TechKey, { label: string; icon: IconType; color: string; bg: string }> = {
+export const techs: Record<TechKey, { label: string; icon: IconType | null; color: string; bg: string }> = {
   // Languages & Syntax
   cplusplus:    { label: 'C++',          icon: SiCplusplus,   color: '#ffffff', bg: '#00599C' },
   python:       { label: 'Python',       icon: SiPython,      color: '#ffdd54', bg: '#3670A0' },
@@ -45,6 +47,8 @@ export const techs: Record<TechKey, { label: string; icon: IconType; color: stri
   pandas:       { label: 'Pandas',       icon: SiPandas,      color: '#ffffff', bg: '#150458' },
   pytorch:      { label: 'PyTorch',      icon: SiPytorch,     color: '#ffffff', bg: '#EE4C2C' },
   scikitlearn:  { label: 'Scikit-learn', icon: SiScikitlearn, color: '#ffffff', bg: '#F7931E' },
+  matplotlib:   { label: 'Matplotlib',   icon: null,          color: '#000000', bg: '#ffffff' },
+  ml:           { label: 'Machine Learning', icon: null,      color: '#000000', bg: '#ffffff' },
 
   // Dev Tools
   git:          { label: 'Git',          icon: SiGit,         color: '#ffffff', bg: '#F05032' },
@@ -59,4 +63,8 @@ export const techs: Record<TechKey, { label: string; icon: IconType; color: stri
 
   // Social
   linkedin:     { label: 'LinkedIn',     icon: FaLinkedin,    color: '#ffffff', bg: '#0A66C2' },
+
+  // Other
+  embeddedsys:   { label: 'Embedded Systems', icon: null,      color: '#000000', bg: '#ffffff' },
+  stm32:         { label: 'STM 32', icon: SiStmicroelectronics, color: '#ffffff', bg: '#0073C2' },
 };
