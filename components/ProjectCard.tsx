@@ -15,6 +15,14 @@ interface ProjectCardProps {
 export default function ProjectCard({ project }: ProjectCardProps) {
   const [open, setOpen] = useState(false);
 
+  function projectRatio(projectId : string) {
+    if (projectId === 'air-quality' || projectId === 'housing-prices') {
+      return 'object-center group-hover:scale-105 transition-transform duration-300'
+    } else {
+      return 'object-top object-cover group-hover:scale-105 transition-transform duration-300'
+    }
+  }
+
   return (
     <>
       <motion.div
@@ -31,7 +39,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               src={project.image}
               alt={project.title}
               fill
-              className='object-cover object-top group-hover:scale-105 transition-transform duration-300'
+              className={projectRatio(project.id)}
             />
           ) : (
             <div className='w-full h-full bg-gradient-to-br from-violet-100 via-blue-50 to-slate-100 dark:from-violet-900/40 dark:via-blue-900/30 dark:to-slate-900 flex items-center justify-center'>
