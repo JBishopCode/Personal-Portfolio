@@ -3,63 +3,76 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { Menu } from 'lucide-react';
 import MobileMenu from './MobileMenu';
+import ResumeModal from './ResumeModal';
 import ThemeToggle from './ThemeToggle';
 
-const navLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'Projects', href: '/projects' },
-    { name: 'Experience', href: '/experience' },
-    { name: 'About', href: '/about' },
-    { name: 'Contact', href: '/contact' },
+const links = [
+  { href: '/projects',   label: 'Projects'   },
+  { href: '/experience', label: 'Experience' },
+  { href: '/about',      label: 'About'      },
+  { href: '/contact',    label: 'Contact'    },
 ];
 
 export default function Navbar() {
-    const pathname = usePathname();
-    const [ mobileMenuOpen, setMobileMenuOpen ] = useState(false);
+  const pathname = usePathname();
+  const [resumeOpen, setResumeOpen] = useState(false);
 
-    return (
-        <nav className="fixed top-0 left-0 right-0 z-40 border-b border-black/8 dark:border-white/8 backdrop-blur-md"
-      style={{ background: "var(--nav-bg)" }}>
-      <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="font-bold text-lg bg-gradient-to-r from-violet-600 to-blue-600 bg-clip-text text-transparent">
-          Jordan Bishop
-        </Link>
-
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-1">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`px-4 py-2 rounded-lg transition-all ${
-                pathname === link.href
-                  ? "bg-black/6 dark:bg-white/8 border-b-2 border-gradient-to-r border-violet-500"
-                  : "hover:bg-black/4 dark:hover:bg-white/5"
-              }`}
-            >
-              {link.name}
-            </Link>
-          ))}
-        </div>
-
-        {/* Right Side: Theme Toggle + Mobile Menu */}
-        <div className="flex items-center gap-3">
-          <ThemeToggle />
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 hover:bg-black/4 dark:hover:bg-white/5 rounded-lg transition-colors"
-            aria-label="Toggle menu"
+  return (
+    <>
+      <header
+        className='fixed top-0 left-0 right-0 z-40 backdrop-blur-md border-b border-black/8 dark:border-white/6'
+        style={{ background: 'var(--nav-bg)' }}
+      >
+        <nav className='max-w-5xl mx-auto px-6 h-16 flex items-center justify-between relative'>
+          <Link
+            href='/'
+            className='font-bold text-base tracking-tight bg-gradient-to-r from-violet-600 to-blue-600 dark:from-violet-300 dark:to-blue-300 bg-clip-text text-transparent hover:opacity-80 transition-opacity'
           >
-            <Menu size={20} />
-          </button>
-        </div>
-      </div>
+            Jordan Bishop
+          </Link>
 
-      {/* Mobile Menu */}
-      <MobileMenu isOpen={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />
-    </nav>
+          <div className='hidden md:flex items-center gap-1'>
+            {links.map((link) => {
+              const active = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
+                    active
+                      ? 'text-slate-900 dark:text-white bg-black/6 dark:bg-white/8'
+                      : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-black/4 dark:hover:bg-white/5'
+                  }`}
+                >
+                  {link.label}
+                  {active && (
+                    <span className='absolute bottom-0 left-1/2 -translate-x-1/2 w-5 h-0.5 rounded-full bg-gradient-to-r from-violet-500 to-blue-500' />
+                  )}
+                </Link>
+              );
+            })}
+
+            <button
+              onClick={() => setResumeOpen(true)}
+              className='ml-2 px-4 py-2 text-sm font-semibold rounded-lg border border-violet-400/30 dark:border-violet-500/35 text-violet-700 dark:text-violet-300 bg-violet-50 dark:bg-transparent hover:bg-violet-100 dark:hover:bg-violet-500/10 hover:border-violet-500/50 dark:hover:border-violet-400/60 transition-all'
+            >
+              Resume
+            </button>
+
+            <div className='ml-2'>
+              <ThemeToggle />
+            </div>
+          </div>
+
+          <div className='flex items-center gap-2 md:hidden'>
+            <ThemeToggle />
+            <MobileMenu onResumeClick={() => setResumeOpen(true)} />
+          </div>
+        </nav>
+      </header>
+
+      <ResumeModal isOpen={resumeOpen} onClose={() => setResumeOpen(false)} />
+    </>
   );
 }
