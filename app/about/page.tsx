@@ -38,7 +38,7 @@ export default function AboutPage() {
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <p className='text-lg text-slate-700 dark:text-slate-300 leading-relaxed mb-4'>
               I&apos;m Jordan — a Computer Engineering student at Memorial University
-              in St. John&apos;s, NL with a 3.63 GPA and a strong bias toward
+              in St. John&apos;s, NL with a strong bias toward
               shipping real software.
             </p>
             <p className='text-slate-600 dark:text-slate-400 leading-relaxed mb-4'>
