@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Mail, Send, CheckCircle } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '@/components/icons';
 import SectionWrapper from '@/components/SectionWrapper';
+import emailjs from '@emailjs/browser';
 
 const contactLinks = [
   {
@@ -47,8 +48,23 @@ export default function ContactPage() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setStatus('sending');
-    await new Promise((r) => setTimeout(r, 1200));
-    setStatus('sent');
+
+    try {
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        {
+          from_name: form.name,
+          from_email: form.email,
+          message: form.message,
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
+      setStatus('sent');
+    } catch {
+      setStatus('idle');
+      alert('Something went wrong. Please try again.');
+    }
   }
 
   return (
