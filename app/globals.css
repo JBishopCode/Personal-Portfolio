@@ -1,25 +1,18 @@
 @import "tailwindcss";
 
-/* Enable class-based dark mode for Tailwind */
+/* Enable class-based dark mode for Tailwind 4 */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* ── Light mode ────────────────────────────────── */
+/* ── Light mode (default) ───────────────────────── */
 :root {
-  /* Background & surfaces */
   --bg:           #f5f3ff;
   --card-bg:      rgba(255, 255, 255, 0.85);
   --nav-bg:       rgba(245, 243, 255, 0.85);
-  
-  /* Text colors */
   --fg:           #0c0c1e;
   --fg-2:         #4b5563;
   --fg-3:         #6b7280;
-  
-  /* Borders & UI */
   --border:       rgba(0, 0, 0, 0.08);
   --border-hover: rgba(109, 40, 217, 0.35);
-  
-  /* Decorative elements */
   --dot-color:    rgba(0, 0, 0, 0.045);
   --ambient-1:    rgba(139, 92, 246, 0.09);
   --ambient-2:    rgba(56, 189, 248, 0.06);
@@ -42,13 +35,11 @@
   --ambient-3:    rgba(52, 211, 153, 0.05);
 }
 
-/* Custom theme extension */
 @theme inline {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-/* Global styles */
 html {
   scroll-behavior: smooth;
 }
@@ -58,12 +49,12 @@ body {
   color: var(--fg);
   background-image:
     radial-gradient(ellipse 90% 55% at 30% -5%, var(--ambient-1) 0%, transparent 70%),
-    radial-gradient(ellipse 70% 45% at 80% 5%, var(--ambient-2) 0%, transparent 65%),
+    radial-gradient(ellipse 70% 45% at 80%  5%, var(--ambient-2) 0%, transparent 65%),
     radial-gradient(ellipse 50% 30% at 50% 100%, var(--ambient-3) 0%, transparent 70%);
   transition: background-color 0.3s ease, color 0.2s ease;
 }
 
-/* Subtle animated dot grid overlay */
+/* Subtle dot-grid overlay */
 body::before {
   content: "";
   position: fixed;
@@ -74,25 +65,13 @@ body::before {
   pointer-events: none;
 }
 
-/* Custom scrollbar styling */
-::-webkit-scrollbar {
-  width: 6px;
-}
+/* Custom scrollbar */
+::-webkit-scrollbar        { width: 6px; }
+::-webkit-scrollbar-track  { background: transparent; }
+::-webkit-scrollbar-thumb  { background: rgba(139, 92, 246, 0.3); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(139, 92, 246, 0.55); }
 
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(139, 92, 246, 0.3);
-  border-radius: 999px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(139, 92, 246, 0.55);
-}
-
-/* Text selection styling */
+/* Selection */
 ::selection {
   background: rgba(139, 92, 246, 0.3);
   color: var(--fg);

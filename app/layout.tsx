@@ -34,6 +34,7 @@ export const metadata: Metadata = {
     description:
       "Computer Engineering student at Memorial University. Building full-stack web apps, ML pipelines, and embedded systems.",
     type: "website",
+    images: 'projects/personal-portfolio.jpg'
   },
 };
 
@@ -45,10 +46,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-screen flex flex-col">
         <ThemeProvider>
           <Navbar />
           <main className="flex-1 pt-16">{children}</main>
