@@ -61,7 +61,8 @@ export default function ContactPage() {
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
       );
       setStatus('sent');
-    } catch {
+    } catch (err) {
+      console.error('EmailJS error:', err);
       setStatus('idle');
       alert('Something went wrong. Please try again.');
     }
