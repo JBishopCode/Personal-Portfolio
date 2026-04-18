@@ -66,5 +66,5 @@ export const techs: Record<TechKey, { label: string; icon: IconType | null; colo
 
   // Other
   embeddedsys:   { label: 'Embedded Systems', icon: null,      color: '#000000', bg: '#ffffff' },
-  stm32:         { label: 'STM 32', icon: SiStmicroelectronics, color: '#ffffff', bg: '#0073C2' },
+  stm32:         { label: 'STM32', icon: SiStmicroelectronics, color: '#ffffff', bg: '#0073C2' },
 };

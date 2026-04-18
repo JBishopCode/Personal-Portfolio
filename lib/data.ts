@@ -37,7 +37,6 @@ export const projects: Project[] = [
         github: 'https://github.com/JBishopCode/To-Do-List',
         featured: false,
         image: '/projects/todo-list.png',
-        live: 'https://github.com/JBishopCode/Personal-Portfolio'
     },
     {
         id: 'personal-portfolio',
