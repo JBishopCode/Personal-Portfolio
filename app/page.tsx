@@ -92,7 +92,7 @@ export default function Home() {
                   className='text-slate-400 dark:text-slate-500 hover:text-violet-600 dark:hover:text-violet-300 transition-colors'>
                   <GithubIcon size={22} />
                 </a>
-                <a href='https://linkedin.com/in/jordan-bishop-nl' target='_blank' rel='noopener noreferrer'
+                <a href='https://linkedin.com/in/jordanbishopp' target='_blank' rel='noopener noreferrer'
                   className='text-slate-400 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-300 transition-colors'>
                   <LinkedinIcon size={22} />
                 </a>
