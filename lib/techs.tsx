@@ -1,7 +1,7 @@
 import {
   SiCplusplus, SiPython, SiJavascript, SiC, SiJson, SiTypescript,
   SiHtml5, SiCss, SiReact, SiNextdotjs, SiTailwindcss,
-  SiSupabase, SiPostgresql, SiDrizzle,
+  SiSupabase, SiPostgresql, SiDrizzle, SiFastapi,
   SiJupyter, SiNumpy, SiPandas, SiPytorch, SiScikitlearn,
   SiGit, SiGithub, SiVercel, SiArduino,
   SiStmicroelectronics,
@@ -13,7 +13,7 @@ import { IconType } from 'react-icons';
 export type TechKey =
     'cplusplus' | 'python' | 'javascript' | 'c' | 'json' | 'typescript'
   | 'html' | 'css' | 'react' | 'nextjs' | 'tailwind'
-  | 'supabase' | 'postgresql' | 'drizzle'
+  | 'supabase' | 'postgresql' | 'drizzle' | 'fastapi'
   | 'jupyter' | 'numpy' | 'pandas' | 'pytorch' | 'scikitlearn' | 'matplotlib' | 'ml'
   | 'git' | 'github' | 'vercel' | 'arduino'
   | 'vscode' | 'windows' | 'linux'
@@ -40,6 +40,7 @@ export const techs: Record<TechKey, { label: string; icon: IconType | null; colo
   supabase:     { label: 'Supabase',     icon: SiSupabase,    color: '#3ECF8E', bg: '#181818' },
   postgresql:   { label: 'PostgreSQL',   icon: SiPostgresql,  color: '#ffffff', bg: '#336791' },
   drizzle:      { label: 'Drizzle',      icon: SiDrizzle,     color: '#1a1a1a', bg: '#C5F74F' },
+  fastapi:      { label: 'FastAPI',      icon: SiFastapi,     color: '#009688', bg: '#0d1117' },
 
   // Data Science & ML
   jupyter:      { label: 'Jupyter',      icon: SiJupyter,     color: '#ffffff', bg: '#FA0F00' },

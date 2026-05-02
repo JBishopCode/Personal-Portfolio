@@ -11,6 +11,7 @@ export interface Project {
     live?: string;
     featured: boolean;
     image?: string;
+    expandedImage?: string;
 }
 
 export interface Experience {

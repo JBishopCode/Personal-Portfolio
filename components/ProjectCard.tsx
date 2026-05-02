@@ -23,6 +23,13 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     }
   }
 
+  function expandedImageStyle(projectId: string) {
+    if (projectId === 'fantasy-hockey-ai') {
+      return 'object-cover object-top'
+    }
+    return 'object-cover'
+  }
+
   return (
     <>
       <motion.div
@@ -103,7 +110,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             >
               {project.image && (
                 <div className='relative w-full h-48'>
-                  <Image src={project.image} alt={project.title} fill className='object-cover' />
+                  <Image src={project.expandedImage ?? project.image} alt={project.title} fill className={expandedImageStyle(project.id)} />
                   <div className='absolute inset-0 bg-gradient-to-t from-[var(--card-bg)] to-transparent opacity-80' />
                 </div>
               )}

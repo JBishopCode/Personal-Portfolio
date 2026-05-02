@@ -53,14 +53,15 @@ export const projects: Project[] = [
     {
         id: 'fantasy-hockey-ai',
         title: 'ESPN Fantasy Hockey Agentic AI Assistant',
-        description: 'In-progress AI system for real-time fantasy hockey decision support using live data and contextual reasoning',
+        description: 'Full-stack agentic AI system for real-time fantasy hockey decision support powered by IBM watsonx and live ESPN data',
         longDescription: 
-            'Currently developing an Agentic AI assistant as part of the IBM AI Experiential Learning Lab. The system monitors a user’s fantasy hockey team, league settings, and real-time NHL data to generate proactive recommendations for lineup decisions, waiver pickups, and trades. The project applies IBM Design Thinking and Agentic AI concepts to move beyond static projections, focusing on continuous analysis, adaptive reasoning, and clear, explainable insights. Current work includes defining agent workflows, identifying data sources, and prototyping recommendation logic.',
-        tech: ['python', 'pandas', 'numpy', 'scikitlearn', 'json', 'react', 'git'] as TechKey[],
-        impact: 'Aims to reduce information overload and improve decision quality for ESPN fantasy hockey users through intelligent, real-time guidance.',
-        github: '',
+            'Built a full-stack agentic AI assistant as part of the IBM SkillsBuild AI Experiential Learning Lab 2026. The system connects directly to a live ESPN Fantasy Hockey league, pulls real roster data, player statistics, injury status, weekly schedules, and waiver wire availability, then sends that full context to IBM watsonx running llama-3-3-70b-instruct to generate personalized recommendations. Features include automatic roster analysis on startup, free agent rankings, matchup breakdowns, trade evaluation, and an interactive chat interface. Built with a Python FastAPI backend and a Next.js frontend.',
+        tech: ['python', 'fastapi', 'nextjs', 'react', 'typescript', 'tailwind'] as TechKey[],
+        impact: 'Reduced fantasy hockey decision-making from guesswork to data-driven recommendations - live roster analysis, waiver pickups, and trade evaluation in one place.',
+        github: 'https://github.com/JBishopCode/IBMxESPN-Hockey-AI-Assistant',
         featured: true,
         image: '/projects/fantasy-hockey-ai.jpg',
+        expandedImage: '/projects/expanded-fantasy-hockey.jpg'
     },
 ];
 
