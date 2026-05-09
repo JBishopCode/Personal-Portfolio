@@ -80,7 +80,7 @@ export const experience: Experience[] = [
           "Served as 1 of 4 authorized code reviewers on a 13-person team, conducting 10+ pull request reviews with merge authority and enforcing implementation standards across the codebase",
           "Diagnosed and resolved production-breaking bugs including a recursive stack overflow in an API route and a runtime crash from an invalid field reference on the participant detail page",
         ],
-        tech: ["nextjs", "react", "typeScript", "postgresql", "drizzle", "supabase", "git"] as TechKey[],
+        tech: ["nextjs", "react", "typescript", "postgresql", "drizzle", "supabase", "git"] as TechKey[],
         logo: '/logos/nl-eats.jpg',
     },
     {
