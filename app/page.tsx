@@ -100,7 +100,7 @@ export default function Home() {
             </div>
 
             {/* Profile photo */}
-            <div className='shrink-0'>
+            <div className='shrink-0 flex flex-col items-center gap-3'>
               <div className='relative w-48 h-48 md:w-64 md:h-64'>
                 <div className='absolute inset-0 rounded-full bg-gradient-to-br from-violet-400 via-blue-400 to-emerald-400 opacity-20 dark:opacity-40 blur-xl' />
                 <div className='absolute inset-0 rounded-full p-[2px] bg-gradient-to-br from-violet-500 via-blue-400 to-emerald-400'>
@@ -114,6 +114,27 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+              
+             {/* Stat chips */}
+              <div className='flex gap-2 mt-1'>
+                {[
+                  { value: '5+', label: 'Projects' },
+                  { value: '13+', label: 'PR Reviews' },
+                  { value: '3rd', label: 'Year' },
+                ].map(({ value, label }) => (
+                  <div key={label} className='rounded-xl p-[1px] bg-gradient-to-br from-violet-500/50 via-blue-500/50 to-emerald-500/50'>
+                    <div className='flex flex-col items-center px-4 py-2 rounded-[11px] bg-slate-950'>
+                      <span className='text-lg font-bold text-white'>{value}</span>
+                      <span className='text-xs text-slate-400'>{label}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className='flex items-center gap-1 text-sm text-slate-600 dark:text-slate-300'>
+                <MapPin size={13} className='text-violet-500 dark:text-violet-400' /> St. John&apos;s, NL, Canada
+              </div>
+
             </div>
           </motion.div>
         </div>

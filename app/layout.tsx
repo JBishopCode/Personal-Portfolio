@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Jordan Bishop — Software Engineer",
+  title: "Jordan Bishop - Software Engineer",
   description:
     "Computer Engineering student at Memorial University. Building full-stack web apps, ML pipelines, and embedded systems.",
   keywords: [
