@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Jordan Bishop — Personal Portfolio
+
+A responsive, full-stack personal portfolio site built with Next.js, TypeScript, and Tailwind CSS. Features dark/light theming, animated UI, project showcases, an experience timeline, and a working contact form.
+
+**Live site:** [jordanbishop.ca](https://jordanbishop.ca) 
+
+---
+
+## Tech Stack
+
+| Category | Technologies |
+|---|---|
+| Framework | Next.js 15 (App Router), React 19 |
+| Language | TypeScript |
+| Styling | Tailwind CSS v4, Framer Motion |
+| Email | EmailJS |
+| Analytics | Vercel Analytics, Vercel Speed Insights |
+| Deployment | Vercel |
+
+---
+
+## Features
+
+- **Dark / Light / System theme** toggle with `next-themes`
+- **Animated sections** using Framer Motion scroll-triggered transitions
+- **Project cards** with expandable modals, tech badges, impact stats, and GitHub links
+- **Experience timeline** with role descriptions, tech stacks, and company logos
+- **Resume modal** with inline PDF preview and download
+- **Contact form** powered by EmailJS — no backend required
+- **Fully responsive** — mobile hamburger menu with smooth animations
+- **Data-driven** — all projects and experience defined in `lib/data.ts` for easy updates
+
+---
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+# Install dependencies
+npm install
+
+# Copy environment variables and fill in your EmailJS credentials
+cp .env.example .env.local
+
+# Start the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view locally.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```env
+NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
+NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
+NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+├── app/                  # Next.js App Router pages
+│   ├── page.tsx          # Homepage (hero, featured projects, experience)
+│   ├── about/            # About page
+│   ├── projects/         # Full project grid
+│   ├── experience/       # Experience timeline and education
+│   └── contact/          # Contact form
+├── components/           # Reusable UI components
+├── lib/
+│   ├── data.ts           # All project and experience data
+│   └── techs.tsx         # Tech stack icon mappings
+├── types/                # TypeScript interfaces
+└── public/               # Static assets (images, resume PDF, logos)
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Contact
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Jordan Bishop** — Computer Engineering Student, Memorial University of Newfoundland
+St. John's, NL - open to remote and hybrid opportunities
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- GitHub: [JBishopCode](https://github.com/JBishopCode)
+- LinkedIn: [linkedin.com/in/jordan-bishop](https://www.linkedin.com/in/jordan-bishop)
