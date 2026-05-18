@@ -18,6 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://jordanbishop.ca'),
   title: "Jordan Bishop - Software Engineer",
   description:
     "Computer Engineering student at Memorial University. Building full-stack web apps, ML pipelines, and embedded systems.",
@@ -50,6 +51,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       suppressHydrationWarning
+      data-scroll-behavior='smooth'
     >
       <body className="min-h-screen flex flex-col">
         <ThemeProvider>

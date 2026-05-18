@@ -54,7 +54,7 @@ export default function ExperiencePage() {
                 <div className='flex gap-4 mb-5'>
                   <div className='relative shrink-0 w-14 h-14 rounded-xl overflow-hidden border border-black/8 dark:border-white/10 bg-white flex items-center justify-center'>
                     {exp.logo ? (
-                      <Image src={exp.logo} alt={exp.company} fill className='object-contain p-1.5' />
+                      <Image src={exp.logo} alt={exp.company} fill sizes='56px' className='object-contain p-1.5' />
                     ) : (
                       <span className='text-sm font-bold text-slate-400 dark:text-slate-500 select-none'>
                         {exp.company.split(' ').slice(0, 2).map((w) => w[0]).join('')}
@@ -114,7 +114,7 @@ export default function ExperiencePage() {
         >
           <div className='flex gap-4'>
             <div className='relative shrink-0 w-14 h-14 rounded-xl overflow-hidden border border-black/8 dark:border-white/10 bg-white flex items-center justify-center'>
-              <Image src='/logos/mun_logo.jpg' alt='Memorial University' fill className='object-contain p-1.5' />
+              <Image src='/logos/mun_logo.jpg' alt='Memorial University' fill sizes='56px' className='object-contain p-1.5' />
             </div>
             <div className='flex-1 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2'>
               <div>

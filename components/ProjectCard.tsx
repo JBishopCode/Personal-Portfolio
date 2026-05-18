@@ -46,6 +46,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               src={project.image}
               alt={project.title}
               fill
+              priority
+              sizes='(max-width: 768px) 80vw, 320px'
               className={projectRatio(project.id)}
             />
           ) : (
@@ -110,7 +112,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             >
               {project.image && (
                 <div className='relative w-full h-48'>
-                  <Image src={project.expandedImage ?? project.image} alt={project.title} fill className={expandedImageStyle(project.id)} />
+                  <Image src={project.expandedImage ?? project.image} alt={project.title} fill priority sizes='(max-width: 768px) 80vw, 320px' className={expandedImageStyle(project.id)} />
                   <div className='absolute inset-0 bg-gradient-to-t from-[var(--card-bg)] to-transparent opacity-80' />
                 </div>
               )}

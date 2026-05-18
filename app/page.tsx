@@ -107,7 +107,7 @@ export default function Home() {
                   <div className='w-full h-full rounded-full' style={{ background: 'var(--bg)' }} />
                 </div>
                 <div className='absolute inset-[2px] rounded-full overflow-hidden'>
-                  <Image src='/profile.jpg' alt='Jordan Bishop' fill className='object-cover'
+                  <Image src='/profile.jpg' alt='Jordan Bishop' fill priority quality={95} sizes='512px' className='object-cover'
                     onError={(e) => { (e.target as HTMLElement).style.display = 'none'; }} />
                   <div className='w-full h-full bg-gradient-to-br from-violet-200/60 to-blue-200/60 dark:from-violet-900/60 dark:to-blue-900/60 flex items-center justify-center'>
                     <span className='text-4xl font-bold text-violet-400/40 dark:text-white/30 select-none'>JB</span>
@@ -227,7 +227,7 @@ export default function Home() {
             >
               <div className='relative shrink-0 w-14 h-14 rounded-xl overflow-hidden border border-black/8 dark:border-white/10 bg-white flex items-center justify-center'>
                 {exp.logo ? (
-                  <Image src={exp.logo} alt={exp.company} fill className='object-contain p-1.5' />
+                  <Image src={exp.logo} alt={exp.company} fill sizes='56px' className='object-contain p-1.5' />
                 ) : (
                   <span className='text-sm font-bold text-slate-400 dark:text-slate-500 select-none'>
                     {exp.company.split(' ').slice(0, 2).map((w) => w[0]).join('')}
