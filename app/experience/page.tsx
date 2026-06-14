@@ -43,7 +43,9 @@ export default function ExperiencePage() {
                 <div className={`w-2.5 h-2.5 rounded-full ${
                   exp.current
                     ? 'bg-violet-500 dark:bg-violet-400 shadow-[0_0_8px_rgba(139,92,246,0.7)]'
-                    : 'bg-slate-300 dark:bg-slate-600'
+                    : exp.upcoming
+                      ? 'bg-blue-500 dark:bg-blue-400 shadow-[0_0_8px_rgba(59,130,246,0.7)]'
+                      : 'bg-slate-300 dark:bg-slate-600'
                 }`} />
               </div>
 
