@@ -24,6 +24,7 @@ export interface Experience {
     description: string[];
     tech: TechKey[];
     logo?: string;
+    upcoming?: boolean;
 }
 
 export interface ContactFormData {

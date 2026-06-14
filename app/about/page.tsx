@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import SectionWrapper from '@/components/SectionWrapper';
 import { TechBadge } from '@/components/icons';
-import { skills } from '@/lib/data';
+import { skills, careerStatus } from '@/lib/data';
 
 const learning = [
   'Advanced React patterns — compound components, portals, concurrent features',
@@ -14,11 +14,11 @@ const learning = [
   'Cloud infrastructure and deployment with Vercel + Supabase',
 ];
 
-const quickFacts = [
+const quickFacts = (careerStatus: typeof import('@/lib/data').careerStatus) => [
   ['Location', "St. John's, NL"],
   ['Program', 'Computer Engineering (Co-op)'],
   ['University', 'Memorial University'],
-  ['Status', 'Seeking internships'],
+  ['Status', careerStatus.aboutStatus],
 ] as const;
 
 export default function AboutPage() {
@@ -102,7 +102,7 @@ export default function AboutPage() {
               Quick Facts
             </h3>
             <dl className='flex flex-col gap-3'>
-              {quickFacts.map(([label, value]) => (
+              {quickFacts(careerStatus).map(([label, value]) => (
                 <div key={label}>
                   <dt className='text-xs text-slate-500 dark:text-slate-500 mb-0.5'>{label}</dt>
                   <dd className='text-sm text-slate-800 dark:text-slate-200 font-medium'>{value}</dd>

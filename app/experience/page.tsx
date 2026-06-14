@@ -71,6 +71,11 @@ export default function ExperiencePage() {
                             Current
                           </span>
                         )}
+                        {exp.upcoming && (
+                          <span className='text-xs font-semibold text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-400/10 border border-blue-300 dark:border-blue-400/25 px-2 py-0.5 rounded-full'>
+                            Upcoming
+                          </span>
+                        )}
                       </div>
                       <p className='text-slate-600 dark:text-slate-300 font-medium'>{exp.company}</p>
                     </div>

@@ -10,7 +10,7 @@ import SectionWrapper from '@/components/SectionWrapper';
 import ProjectCard from '@/components/ProjectCard';
 import { TechBadge } from '@/components/icons';
 import ResumeModal from '@/components/ResumeModal';
-import { projects, experience, skills } from '@/lib/data';
+import { projects, experience, skills, careerStatus } from '@/lib/data';
 
 const featuredProjects = projects.filter((p) => p.featured);
 
@@ -43,9 +43,9 @@ export default function Home() {
           >
             {/* Text */}
             <div className='flex-1 min-w-0'>
-              <span className='inline-flex items-center gap-2 text-xs font-semibold mb-6 px-3 py-1.5 rounded-full border border-emerald-400/30 dark:border-emerald-500/30 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 tracking-wide uppercase'>
-                <span className='w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse' />
-                Available for internships &amp; co-ops
+              <span className={`inline-flex items-center gap-2 text-xs font-semibold mb-6 px-3 py-1.5 rounded-full border ${careerStatus.badgeClasses} tracking-wide uppercase`}>
+                <span className={`w-1.5 h-1.5 rounded-full ${careerStatus.dotClass} animate-pulse`} />
+                {careerStatus.badgeText}
               </span>
 
               <h1 className='text-5xl sm:text-6xl md:text-7xl font-bold leading-[1.05] tracking-tight mb-6 bg-gradient-to-br from-slate-900 via-violet-700 to-blue-600 dark:from-white dark:via-violet-100 dark:to-blue-300 bg-clip-text text-transparent'>
@@ -243,6 +243,11 @@ export default function Home() {
                       Current
                     </span>
                   )}
+                  {exp.upcoming && (
+                    <span className='text-xs font-semibold text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-400/10 border border-blue-300 dark:border-blue-400/25 px-2 py-0.5 rounded-full'>
+                      Upcoming
+                    </span>
+                  )}
                 </div>
                 <div className='flex flex-wrap gap-x-4 gap-y-1 mb-3'>
                   <span className='text-slate-700 dark:text-slate-300 text-sm font-medium'>{exp.company}</span>
@@ -280,8 +285,7 @@ export default function Home() {
             Let&apos;s Work Together
           </h2>
           <p className='relative text-slate-600 dark:text-slate-400 mb-8 max-w-md mx-auto'>
-            Open to internship and co-op opportunities in software engineering,
-            full-stack, or ML roles.
+            {careerStatus.ctaCopy}
           </p>
           <div className='relative flex flex-wrap items-center justify-center gap-4'>
             <Link href='/contact'

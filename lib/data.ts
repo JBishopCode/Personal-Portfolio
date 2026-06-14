@@ -68,8 +68,20 @@ export const projects: Project[] = [
 
 export const experience: Experience[] = [
     {
+        id: "sde-colab",
+        role: "Software Developer Co-op",
+        company: "CoLab Software",
+        location: "St. John's, NL",
+        period: "Sep 2026 – Dec 2026",
+        current: false,
+        description: [],  // empty until i do work
+        tech: ["javascript", "react", "python", "postgresql", "html", "css", "git"] as TechKey[], //what is in the job description
+        logo: '/logos/colab.jpg',
+        upcoming: true,
+    },
+    {
         id: "swe-nleats",
-        role: "Software Engineering Intern",
+        role: "Software Engineering Co-op",
         company: "NL Eats Community Outreach Inc.",
         location: "Remote",
         period: "Jan 2026 – Apr 2026",
@@ -124,4 +136,52 @@ export const skills: Record<string, TechKey[]> = {
     'ML / Data': ['jupyter', 'numpy', 'pandas', 'pytorch', 'scikitlearn', 'matplotlib', 'ml'],
     Development: ['git', 'github', 'vercel', 'arduino'],
     Environments: ['vscode', 'windows', 'linux', 'stm32'],
+};
+
+export const worktermConfig = { //update every term
+  status: 'secured' as 'seeking' | 'secured',
+  term: 2,
+} as const;
+
+export const workterms = {
+    1: {label: "Winter 2026", nextAvailable: "Fall 2026"},
+    2: {label: "Fall 2026", nextAvailable: "Spring 2027"},
+    3: {label: "Spring 2027", nextAvailable: "Winter 2028"},
+    4: {label: "Winter 2028", nextAvailable: "Fall 2028"},
+    5: {label: "Fall 2028", nextAvailable: null},
+} as const;
+
+const colorMap = {
+  seeking: {
+    badge: 'border-emerald-400/30 dark:border-emerald-500/30 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-300',
+    dot: 'bg-emerald-500 dark:bg-emerald-400',
+  },
+  secured: {
+    badge: 'border-blue-400/30 dark:border-blue-500/30 bg-blue-50 dark:bg-blue-500/10 text-blue-700 dark:text-blue-300',
+    dot: 'bg-blue-500 dark:bg-blue-400',
+  },
+} as const;
+
+const wt = workterms[worktermConfig.term as keyof typeof workterms];
+const colors = colorMap[worktermConfig.status];
+
+export const careerStatus = {
+  seeking: worktermConfig.status === 'seeking',
+  badgeText: worktermConfig.status === 'seeking'
+    ? `Seeking ${wt.label} co-op · Work Term ${worktermConfig.term}`
+    : wt.nextAvailable
+      ? `Work Term ${worktermConfig.term} secured · Open for ${wt.nextAvailable}`
+      : `Work Term ${worktermConfig.term} secured`,
+  badgeClasses: colors.badge,
+  dotClass: colors.dot,
+  ctaCopy: worktermConfig.status === 'seeking'
+    ? `Open to ${wt.label} co-op opportunities in software engineering, full-stack, or ML roles.`
+    : wt.nextAvailable
+      ? `${wt.label} work term secured. Open to ${wt.nextAvailable} co-op opportunities in software engineering, full-stack, or ML roles.`
+      : `${wt.label} work term secured.`,
+  aboutStatus: worktermConfig.status === 'seeking'
+    ? `Seeking ${wt.label} co-op`
+    : wt.nextAvailable
+      ? `Work Term ${worktermConfig.term} · Open ${wt.nextAvailable}`
+      : `Work Term ${worktermConfig.term} complete`,
 };
