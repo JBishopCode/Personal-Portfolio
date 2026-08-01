@@ -39,6 +39,19 @@ export const projects: Project[] = [
         image: '/projects/todo-list.png',
     },
     {
+        id: 'songuess',
+        title: 'SonGuess',
+        description: 'A Heardle style song guessing game built on your own Spotify playlists, made for study break games with friends',
+        longDescription:
+            'Built a song guessing game where you hear a tiny clip of a song and try to name it before you run out of guesses, with the clip growing longer each time you miss. Made it so anyone can connect their own Spotify playlists, so the songs are actually ones you and your friends know instead of some random pool. Has genre filtering, daily and unlimited modes, guess autocomplete, and streak tracking. Mostly vibe coded as a side project to play with friends during study breaks, but ended up dealing with some real problems along the way, like Spotify blocking bulk playlist access for smaller apps and having to pull track data from their public embed player instead, plus falling back to iTunes for song previews and genre info when Spotify came up short.',
+        tech: ['nextjs', 'typescript', 'react', 'tailwind', 'supabase'] as TechKey[],
+        impact: 'Became the go to game for me and my friend group during study breaks, everyone importing their own playlists to make it personal.',
+        github: 'https://github.com/JBishopCode/SonGuess',
+        featured: false,
+        image: '/projects/songuess.png',
+        expandedImage: '/projects/expanded-songuess.png',
+    },
+    {
         id: 'personal-portfolio',
         title: 'Personal Portfolio',
         description: 'Responsive developer portfolio built with Next.js and TypeScript showcasing projects and experience',
@@ -167,21 +180,21 @@ const colors = colorMap[worktermConfig.status];
 
 export const careerStatus = {
   seeking: worktermConfig.status === 'seeking',
-  badgeText: worktermConfig.status === 'seeking'
+  badgeText: worktermConfig.status === 'seeking' //goes on home page
     ? `Seeking ${wt.label} co-op · Work Term ${worktermConfig.term}`
     : wt.nextAvailable
-      ? `Work Term ${worktermConfig.term} secured · Open for ${wt.nextAvailable}`
-      : `Work Term ${worktermConfig.term} secured`,
+      ? `${wt.label} co-op secured · Open for ${wt.nextAvailable}`
+      : `Final co-op secured · Open to full time opportunities`,
   badgeClasses: colors.badge,
   dotClass: colors.dot,
-  ctaCopy: worktermConfig.status === 'seeking'
+  ctaCopy: worktermConfig.status === 'seeking' // goes on "Lets work together" piece on home page
     ? `Open to ${wt.label} co-op opportunities in software engineering, full-stack, or ML roles.`
     : wt.nextAvailable
-      ? `${wt.label} work term secured. Open to ${wt.nextAvailable} co-op opportunities in software engineering, full-stack, or ML roles.`
-      : `${wt.label} work term secured.`,
-  aboutStatus: worktermConfig.status === 'seeking'
-    ? `Seeking ${wt.label} co-op`
+      ? `${wt.label} co-op secured. Open to ${wt.nextAvailable} co-op opportunities in software engineering, full-stack, or ML roles.`
+      : `${wt.label} co-op secured.`,
+  aboutStatus: worktermConfig.status === 'seeking' //goes on about page
+    ? `Seeking ${wt.label} Co-op`
     : wt.nextAvailable
-      ? `Work Term ${worktermConfig.term} · Open ${wt.nextAvailable}`
-      : `Work Term ${worktermConfig.term} complete`,
+      ? `${wt.label} Co-op Secured · Open for ${wt.nextAvailable}`
+      : `Final Co-op ${worktermConfig.term} secured. `,
 };

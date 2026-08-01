@@ -16,7 +16,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   const [open, setOpen] = useState(false);
 
   function projectRatio(projectId : string) {
-    if (projectId === 'air-quality' || projectId === 'housing-prices') {
+    if (projectId === 'air-quality' || projectId === 'housing-prices' || projectId === 'songuess') {
       return 'object-center group-hover:scale-105 transition-transform duration-300'
     } else {
       return 'object-top object-cover group-hover:scale-105 transition-transform duration-300'
@@ -26,6 +26,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   function expandedImageStyle(projectId: string) {
     if (projectId === 'fantasy-hockey-ai') {
       return 'object-cover object-top'
+    }
+    if (projectId === 'songuess') {
+      return 'object-cover object-center'
     }
     return 'object-cover'
   }
@@ -57,7 +60,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               </span>
             </div>
           )}
-          <div className='absolute inset-0 bg-gradient-to-t from-[var(--card-bg)] to-transparent opacity-70' />
+          <div className='absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[var(--card-bg)] to-transparent opacity-30 dark:opacity-70' />
         </div>
 
         <div className='p-6 flex flex-col gap-3 flex-1'>
@@ -112,8 +115,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             >
               {project.image && (
                 <div className='relative w-full h-48'>
-                  <Image src={project.expandedImage ?? project.image} alt={project.title} fill priority sizes='(max-width: 768px) 80vw, 320px' className={expandedImageStyle(project.id)} />
-                  <div className='absolute inset-0 bg-gradient-to-t from-[var(--card-bg)] to-transparent opacity-80' />
+                  <Image src={project.expandedImage ?? project.image} alt={project.title} fill priority sizes='(max-width: 640px) 90vw, 512px' quality={95} className={expandedImageStyle(project.id)} />
+                  <div className='absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[var(--card-bg)] to-transparent opacity-30 dark:opacity-80' />
                 </div>
               )}
 
