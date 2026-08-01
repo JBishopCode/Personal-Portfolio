@@ -12,10 +12,10 @@ export default function ProjectsPage() {
     <>
       <SectionWrapper>
         <div className='mb-12'>
-          <span className='text-sm font-medium text-emerald-400 uppercase tracking-widest'>
+          <span className='text-sm font-medium text-violet-600 dark:text-violet-400 uppercase tracking-widest'>
             Work
           </span>
-          <h1 className='text-4xl sm:text-5xl font-bold text-white mt-2 mb-4'>
+          <h1 className='text-4xl sm:text-5xl font-bold bg-gradient-to-br from-slate-900 to-slate-600 dark:from-white dark:to-slate-300 bg-clip-text text-transparent mt-2 mb-4'>
             Projects
           </h1>
           <p className='text-neutral-400 max-w-xl leading-relaxed'>
