@@ -85,12 +85,17 @@ export const experience: Experience[] = [
         role: "Software Developer Co-op",
         company: "CoLab Software",
         location: "St. John's, NL",
-        period: "Sep 2026 – Dec 2026",
-        current: false,
-        description: [],  // empty until i do work
-        tech: ["javascript", "react", "python", "postgresql", "html", "css", "git"] as TechKey[], //what is in the job description
+        period: "Sep 2026 – Present",
+        current: true,
+        description: [
+            "Contribute to CoLab's new bill of materials (BOM) feature across the Python/GraphQL backend and React/TypeScript frontend, with 6 PR's merged so far through its early access release and toward general availability",
+            "Diagnose and fix bugs found while testing through the API, such as a revision tracking issue where outdated files from earlier BOM revisions were linked into new imports as standalone files",
+            "Build and use an AI-assisted PR review workflow with Claude Code that pulls Linear tickets, linked GitHub PRs and Figma designs into step-by-step Notion testing docs, used across 10+ code reviews so far",
+            "Review and approve pull requests across the codebase, with 11 approved so far, flagging edge cases in portal sharing, analytics events and file menus and earning recognition in team weekly wins for thorough reviews and testing",
+        ],  // filled in with work up to oct 24th
+        tech: ["typescript", "react", "python", "flask", "graphql", "postgresql", "git"] as TechKey[],
         logo: '/logos/colab.jpg',
-        upcoming: true,
+        upcoming: false,
     },
     {
         id: "swe-nleats",
@@ -129,8 +134,8 @@ export const experience: Experience[] = [
         role: "Machine Learning Team Member",
         company: "Genralis AI, Student Design Team",
         location: "St. John's, NL",
-        period: "Apr 2025 – Present",
-        current: true,
+        period: "Apr 2025 – Sep 2026",
+        current: false,
         description: [
             "Built and compared Decision Tree and Random Forest models in Python to reduce MAE on held-out data and guide model selection",
             "Maintained an automated pipeline for data loading, preprocessing, model training, and CSV export for the Kaggle Home Data for ML competition",

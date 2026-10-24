@@ -7,13 +7,14 @@ import {
   SiStmicroelectronics,
 } from 'react-icons/si';
 import { FaLinkedin, FaWindows, FaLinux } from 'react-icons/fa';
+import { BiLogoFlask, BiLogoGraphql } from 'react-icons/bi'
 import { VscVscode } from 'react-icons/vsc'
 import { IconType } from 'react-icons';
 
 export type TechKey =
     'cplusplus' | 'python' | 'javascript' | 'c' | 'json' | 'typescript'
   | 'html' | 'css' | 'react' | 'nextjs' | 'tailwind'
-  | 'supabase' | 'postgresql' | 'drizzle' | 'fastapi'
+  | 'supabase' | 'postgresql' | 'drizzle' | 'fastapi' | 'flask' | 'graphql' 
   | 'jupyter' | 'numpy' | 'pandas' | 'pytorch' | 'scikitlearn' | 'matplotlib' | 'ml'
   | 'git' | 'github' | 'vercel' | 'arduino'
   | 'vscode' | 'windows' | 'linux'
@@ -41,6 +42,8 @@ export const techs: Record<TechKey, { label: string; icon: IconType | null; colo
   postgresql:   { label: 'PostgreSQL',   icon: SiPostgresql,  color: '#ffffff', bg: '#336791' },
   drizzle:      { label: 'Drizzle',      icon: SiDrizzle,     color: '#1a1a1a', bg: '#C5F74F' },
   fastapi:      { label: 'FastAPI',      icon: SiFastapi,     color: '#009688', bg: '#0d1117' },
+  flask:        { label: 'Flask',        icon: BiLogoFlask,   color: '#ffffff', bg: '#3A848F' },
+  graphql:      { label: 'GraphQL',      icon: BiLogoGraphql, color: '#E10098', bg: '#171E26' },
 
   // Data Science & ML
   jupyter:      { label: 'Jupyter',      icon: SiJupyter,     color: '#ffffff', bg: '#FA0F00' },
